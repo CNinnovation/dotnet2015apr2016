@@ -6,18 +6,16 @@ namespace BooksSample.Models
     {
         public Book(int bookId)
         {
-            _bookId = bookId;
+            BookId = bookId;
             Title = string.Empty;
             Publisher = string.Empty;
-            Author = "Christian Nagel";
+            //Author = "Christian Nagel";
         }
 
         // TODO: 02 - read only auto property
-        private readonly int _bookId;
-        public int BookId
-        {
-            get { return _bookId; }
-        }
+
+
+        public int BookId { get; }
 
 
         private string _title;
@@ -35,14 +33,13 @@ namespace BooksSample.Models
         }
 
         // TODO: 01 - auto property initializer
-        public string Author { get; set; }
+        public string Author { get; set; } = "Christian Nagel";
 
         // TODO: 04 - expression bodied method
         // TODO: 07 - string interpolation
-        public override string ToString()
-        {
-            return string.Format("{0}, {1}", Title, Publisher);
-        }
+        public override string ToString() =>
+            $"{Title}, {Publisher}";
+        
        
 
     }

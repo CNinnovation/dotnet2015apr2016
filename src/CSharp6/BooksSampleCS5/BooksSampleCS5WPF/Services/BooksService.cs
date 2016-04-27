@@ -38,7 +38,7 @@ namespace BooksSample.Services
         // TODO: nameof operator
         public async Task<Book> AddOrUpdateBookAsync(Book book)
         {
-            if (book == null) throw new ArgumentNullException("book");
+            if (book == null) throw new ArgumentNullException(nameof(book));
 
             Book old = _books.Where(b => b.BookId == book.BookId).SingleOrDefault();
 

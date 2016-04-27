@@ -34,10 +34,9 @@ namespace BooksSample.Repositories
         }
 
         // TODO: 04 - expression bodied method
-        public Task<Book> GetItemAsync(int id)
-        {
-            return Task.FromResult(_books.Find(b => b.BookId == id));
-        }
+        public Task<Book> GetItemAsync(int id) =>
+            Task.FromResult(_books.Find(b => b.BookId == id));
+        
 
 
         // TODO: 04 - expression bodied method

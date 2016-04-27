@@ -12,7 +12,7 @@ namespace BooksSample.Framework
         public DelegateCommand(Action execute, Func<bool> canExecute)
         {
             if (execute == null)
-                throw new ArgumentNullException("execute");
+                throw new ArgumentNullException(nameof(execute));
 
             _execute = execute;
             _canExecute = canExecute;
@@ -26,11 +26,8 @@ namespace BooksSample.Framework
 
         // TODO: elvis operator && expression bodied member
 
-        public bool CanExecute(object parameter)
-        {
-            if (_canExecute == null) return true;
-            return _canExecute.Invoke();
-        }
+        public bool CanExecute(object parameter) =>
+            _canExecute?.Invoke() ?? true;
 
 
         public void Execute(object parameter)
@@ -41,11 +38,7 @@ namespace BooksSample.Framework
         // TODO: Elvis operator
         public void RaiseCanExecuteChanged()
         {
-            EventHandler handler = CanExecuteChanged;
-            if (handler != null)
-            {
-                handler(this, EventArgs.Empty);
-            }
+            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
 
     }

@@ -80,10 +80,8 @@ namespace BooksSample.ViewModels
             {
                 _booksService.SpecialSave(Book);
             }
-            catch (TitleException ex)
+            catch (TitleException ex) when (ex.MyErrorCode == 99)
             {
-                if (ex.MyErrorCode != 99) throw;
-
                 MessageBox.Show("99");
             }
             catch

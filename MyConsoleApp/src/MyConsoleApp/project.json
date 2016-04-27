@@ -1,0 +1,31 @@
+﻿{
+  "version": "1.0.0-*",
+  "description": "MyConsoleApp Console Application",
+  "authors": [ "chris" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "compilationOptions": {
+    "emitEntryPoint": true
+  },
+
+  "dependencies": {
+    "Microsoft.NETCore.App": {
+      "type": "platform",
+      "version": "1.0.0-rc2-3002498"
+    }
+  },
+
+  "commands": {
+    "MyConsoleApp": "MyConsoleApp"
+  },
+
+  "frameworks": {
+
+    "dnxcore50": {
+      "dependencies": {
+      }
+    }
+  }
+}

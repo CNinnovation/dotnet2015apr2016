@@ -8,13 +8,8 @@ namespace BooksSample.Framework
         private static EventAggregator<TEvent> s_eventAggregator;
 
         // TODO: lambda expression bodied property
-        public static EventAggregator<TEvent> Instance
-        {
-            get
-            {
-                return s_eventAggregator ?? (s_eventAggregator = new EventAggregator<TEvent>());
-            }
-        }
+        public static EventAggregator<TEvent> Instance =>
+                s_eventAggregator ?? (s_eventAggregator = new EventAggregator<TEvent>());
 
         private EventAggregator()
         {
@@ -25,11 +20,7 @@ namespace BooksSample.Framework
         // TODO: 08 - null conditional operator
         public void Publish(object source, TEvent ev)
         {
-            var handler = Event;
-            if (handler != null)
-            {
-                handler(source, ev);
-            }
+            Event?.Invoke(source, ev);
         }
     }
 }

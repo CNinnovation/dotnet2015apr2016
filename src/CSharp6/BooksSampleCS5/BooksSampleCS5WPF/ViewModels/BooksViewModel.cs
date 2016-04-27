@@ -32,13 +32,8 @@ namespace BooksSample.ViewModels
         }
 
         // TODO: 04 - expression bodied member: property
-        public IEnumerable<Book> Books
-        {
-            get
-            {
-                return _booksService.Books;
-            }
-        } 
+        public IEnumerable<Book> Books => _booksService.Books;
+
         public ICommand GetBooksCommand { get; }
 
         // TODO: 08 - Elvis operator
@@ -48,19 +43,15 @@ namespace BooksSample.ViewModels
 
             _canGetBooks = true;
             DelegateCommand command = GetBooksCommand as DelegateCommand;
-            if (command != null)
-            {
-                command.RaiseCanExecuteChanged();
-            }
+            command?.RaiseCanExecuteChanged();
+
         }
 
         private bool _canGetBooks = true;
 
         // TODO: 04 - expression bodied method
-        public bool CanGetBooks()
-        {
-            return _canGetBooks;
-        }
+        public bool CanGetBooks() => _canGetBooks;
+
 
         private void OnAddBook()
         {
